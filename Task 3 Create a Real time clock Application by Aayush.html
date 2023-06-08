@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 3 : Create a Real time clock Application by Aayush</title>
+  <style>
+    body {
+       background-color: #f2f2f2; 
+      text-align: center;
+      margin-top: 70px;
+      font-family: Aerial, sans-serif;
+    }
+
+    .container {
+      display: inline-block;
+      text-align: center;
+      background-color: #fff;
+      width: 400px; 
+      height: 133px; 
+      padding: 50px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    }
+
+    #date {
+      font-size: 40px;
+      
+    }
+    
+    #clock {
+      font-size: 40px;
+    }
+      
+  </style>
+</head>
+<body>
+   <div class="container">
+   <h1><div id="date"></div><br>
+  <div id="clock"></div></h1>
+
+</div>
+ 
+  
+  <script>
+    function updateClock() {
+      var realtime = new Date();
+      
+      var time = realtime.toLocaleTimeString();
+      document.getElementById('clock').innerHTML = time;
+      
+      var day = realtime.getDate();
+      var monthIndex = realtime.getMonth();
+      var year = realtime.getFullYear();
+      
+      var months = [
+        "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
+        "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
+      ];
+      
+      var formattedDate = day + '-' + months[monthIndex] + '-' + year;
+      document.getElementById('date').innerHTML = formattedDate;
+    }
+    
+    setInterval(updateClock, 1000); 
+  </script>
+</body>
+</html>
